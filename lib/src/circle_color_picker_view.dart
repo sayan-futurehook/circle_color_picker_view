@@ -6,19 +6,16 @@ class ColorPickerView extends StatefulWidget {
   ColorPickerView(
       {Key key,
       this.radius = 120,
-      this.initialColor = const Color(0xffff0000),
-      this.thumbColor = Colors.black,
       this.thumbRadius = 10,
+      this.initialColor = const Color(0xffff0000),
       @required this.colorListener})
       : assert(radius != null),
-        assert(thumbColor != null),
         assert(colorListener != null),
         super(key: key);
 
   final double radius;
-  final Color thumbColor;
   final double thumbRadius;
-  final ColorListener colorListener;
+  final ValueChanged<Color> colorListener;
   final Color initialColor;
 
   @override
@@ -273,5 +270,3 @@ class _ColorPickerViewState extends State<ColorPickerView> {
     }
   }
 }
-
-typedef ColorListener = void Function(Color color);
