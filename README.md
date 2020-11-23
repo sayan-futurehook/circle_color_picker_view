@@ -4,7 +4,7 @@
 
 
 # CircleColorPickerView
-
+<img src="https://github.com/kaya5777/circle_color_picker_view/blob/images/Screenshot_20201123-030621.png" width="300">
 
 ## Usage
 
