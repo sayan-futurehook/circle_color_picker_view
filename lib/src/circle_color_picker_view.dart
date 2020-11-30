@@ -54,7 +54,7 @@ class _ColorPickerViewState extends State<ColorPickerView> {
 
     thumbDistanceToCenter = widget.radius - widget.thumbRadius;
     thumbRadians =
-        degreesToRadians(270 - HSVColor.fromColor(widget.initialColor).hue);
+        degreesToRadians(HSVColor.fromColor(widget.initialColor).hue - 90);
   }
 
   @override
