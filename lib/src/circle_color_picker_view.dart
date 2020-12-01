@@ -52,9 +52,10 @@ class _ColorPickerViewState extends State<ColorPickerView> {
     barHeight = widget.thumbRadius * 2;
     rate = HSVColor.fromColor(widget.initialColor).value;
 
-    thumbDistanceToCenter = widget.radius - widget.thumbRadius;
     thumbRadians =
         degreesToRadians(HSVColor.fromColor(widget.initialColor).hue - 90);
+    thumbDistanceToCenter = (widget.radius - widget.thumbRadius) *
+        HSVColor.fromColor(widget.initialColor).saturation;
   }
 
   @override
