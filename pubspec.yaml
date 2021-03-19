@@ -1,11 +1,11 @@
 name: circle_color_picker_view
 description: Circle color picker
-version: 0.0.2
+version: 0.0.3
 author: mkayamoto
 homepage: https://github.com/kaya5777/circle_color_picker_view
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0 <2.0.0"
 
 dependencies:

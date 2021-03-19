@@ -4,18 +4,14 @@ import 'package:flutter/material.dart';
 
 class ColorPickerView extends StatefulWidget {
   ColorPickerView(
-      {Key key,
-      this.radius = 120,
+      {this.radius = 120,
       this.thumbRadius = 10,
       this.initialColor = const Color(0xffff0000),
-      @required this.colorListener})
-      : assert(radius != null),
-        assert(colorListener != null),
-        super(key: key);
+      required this.colorListener});
 
   final double radius;
   final double thumbRadius;
-  final ValueChanged<Color> colorListener;
+  final ValueChanged<Color>? colorListener;
   final Color initialColor;
 
   @override
@@ -33,13 +29,14 @@ class _ColorPickerViewState extends State<ColorPickerView> {
     Color(0xffff0000)
   ];
 
-  double thumbDistanceToCenter;
-  double thumbRadians;
-  double barWidth, barHeight;
+  double thumbDistanceToCenter = 0;
+  double thumbRadians = 0;
+  double barWidth = 0;
+  double barHeight = 0;
 
-  Color mixedColor;
-  Color baseColor;
-  double rate;
+  Color? mixedColor;
+  Color? baseColor;
+  double rate = 0;
 
   @override
   void initState() {
@@ -218,7 +215,7 @@ class _ColorPickerViewState extends State<ColorPickerView> {
   }
 
   void handleTouchWheel(Offset globalPosition, BuildContext context) {
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     Offset localPosition = box.globalToLocal(globalPosition);
     final double centerX = box.size.width / 2;
     final double centerY = box.size.height / 2;
@@ -251,7 +248,7 @@ class _ColorPickerViewState extends State<ColorPickerView> {
   }
 
   void handleTouchBar(Offset globalPosition, BuildContext context) {
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     Offset localPosition = box.globalToLocal(globalPosition);
     double rate = (localPosition.dx - widget.thumbRadius) / barWidth;
     rate = min(max(0.0, rate), 1.0);
@@ -263,10 +260,8 @@ class _ColorPickerViewState extends State<ColorPickerView> {
 
   void mixColor() {
     setState(() {
-      mixedColor = HSVColor.fromColor(baseColor).withValue(rate).toColor();
+      mixedColor = HSVColor.fromColor(baseColor!).withValue(rate).toColor();
     });
-    if (widget.colorListener != null) {
-      widget.colorListener(mixedColor);
-    }
+    widget.colorListener!(mixedColor!);
   }
 }
