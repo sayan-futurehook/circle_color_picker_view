@@ -9,7 +9,8 @@ class ColorPickerApp extends StatefulWidget {
 }
 
 class _ColorPickerAppState extends State<ColorPickerApp> {
-  Color currentColor = Color(0xffff0000);
+  Color currentColor = Color(0xffffd600);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
