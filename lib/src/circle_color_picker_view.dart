@@ -64,10 +64,10 @@ class _ColorPickerViewState extends State<ColorPickerView> {
           padding: const EdgeInsets.all(20),
           child: _wheelArea(),
         ),
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: _barArea(),
-        ),
+//         Padding(
+//           padding: const EdgeInsets.all(20),
+//           child: _barArea(),
+//         ),
       ],
     );
   }
